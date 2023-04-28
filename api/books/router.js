@@ -5,7 +5,7 @@ const router = express.Router()
 router.get('/', (req, res, next) => {
   Book.getBooks()
     .then(books => {
-      res.json(books)
+      res.status(200).json(books)
     })
     .catch(next)
 })
@@ -14,7 +14,7 @@ router.get('/:book_id', (req, res, next) => {
 
   Book.findBookById(req.params.book_id)
   .then(book => {
-   res.json(book)
+   res.status(200).json(book)
   })
   .catch(next)
 })
